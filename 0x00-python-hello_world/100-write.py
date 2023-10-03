@@ -8,4 +8,3 @@ sys.stderr.write(message)
 
 # Exit with status code 1
 sys.exit(1)
-
