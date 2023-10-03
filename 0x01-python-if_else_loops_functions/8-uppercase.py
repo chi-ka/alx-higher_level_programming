@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-def uppercase(c):
-    x = 1
-    for i in c:
-        if ord('a') <= ord(i) <= ord('z'):
-            n = ord(i) - ord('a') 
-            print(chr(ord('A') + n), end='')
+def uppercase(s):
+    result = ""
+    for char in s:
+        if 'a' <= char <= 'z':
+            uppercase_ascii = ord(char) - 32
+            result += chr(uppercase_ascii)
         else:
-            print(i,end='')
-        if x == len(c):
-            print('')
-        else:
-            x += 1
+            result += char
+
+    print(result)
