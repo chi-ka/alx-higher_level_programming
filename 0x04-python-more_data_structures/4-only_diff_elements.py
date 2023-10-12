@@ -5,8 +5,7 @@ def only_diff_elements(set_1, set_2):
         if num in set_2 or num in new:
             continue
         else:
-            new.append(num)
-            
+            new.append(num) 
     for num in set_2:
         if num in set_1 or num in new:
             continue
