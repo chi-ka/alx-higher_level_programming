@@ -1,3 +1,6 @@
+"""A magical class for performing calculations"""
+
+
 import math
 """A magical class for performing calculations"""
 
