@@ -7,7 +7,7 @@ class Rectangle:
     Defines a rectangle.
     """
     number_of_instances = 0
-    
+
     def __init__(self, width=0, height=0):
         """
         Initialize a Rectangle object with optional width and height.
