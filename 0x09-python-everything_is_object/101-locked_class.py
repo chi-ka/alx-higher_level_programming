@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-class LockedClass:
+class LockedClassi:
+    """ loked class"""
     def __setattr__(self, name, value):
+        """ sets an attribute"""
         if name == "first_name":
             super().__setattr__(name, value)
         else:
