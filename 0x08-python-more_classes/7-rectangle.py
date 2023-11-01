@@ -8,7 +8,7 @@ class Rectangle:
     """
     number_of_instances = 0
     print_symbol = "#"
-    
+
     def __init__(self, width=0, height=0):
         """
         Initialize a Rectangle object with optional width and height.
@@ -90,9 +90,9 @@ class Rectangle:
     def __str__(self):
         """
         Return a string representation of the rectangle.
-    
+
         Returns:
-            str: A string representing the rectangle using the character specified in print_symbol.
+            str: A string representing the rectangle using in print_symbol.
         """
         if self.__height == 0 or self.__width == 0:
             return ""
@@ -115,6 +115,9 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
+        """
+        Destructor method that is called when Rectangle is deleted.
+        """
         if Rectangle.number_of_instances > 0:
             Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
