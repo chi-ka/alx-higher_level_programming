@@ -1,26 +1,19 @@
 #!/usr/bin/python3
 """Parses a JSON string and returns the corresponding Python data structure."""
 
-
+import json
 import sys
-from 5-save_to_json_file.py import save_to_json_file
-from 6-load_from_json_file.py import load_from_json_file
+import os.path
 
-def add_args_to_list(args):
-    """
-    Add the command-line arguments to a list and save it as a JSON representation in a file named "add_item.json".
+from save_to_json_file import save_to_json_file
+from load_from_json_file import load_from_json_file
 
-    Args:
-        args (list): A list of arguments to be added to the existing list.
+if __name__ == "__main__":
+    filename = "add_item.json"
+    my_list = []
 
-    Returns:
-        None
-    """
-    try:
-        my_list = load_from_json_file("add_item.json")
-    except (FileNotFoundError, json.JSONDecodeError):
-        my_list = []
+    if os.path.exists(filename):
+        my_list = load_from_json_file(filename)
 
-    my_list.extend(args)
-
-    save_to_json_file(my_list, "add_item.json")
+    my_list.extend(sys.argv[1:])
+    save_to_json_file(my_list, filename)
