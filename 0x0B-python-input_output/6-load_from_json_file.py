@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""Parses a JSON string and returns the corresponding Python data structure."""
+
 import json
 
 def load_from_json_file(filename):
@@ -10,6 +13,10 @@ def load_from_json_file(filename):
     Returns:
         object: The deserialized object from the JSON file.
     """
-    with open(filename, 'r') as file:
-        return json.load(file)
-
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return None
+    except json.JSONDecodeError:
+        return None
