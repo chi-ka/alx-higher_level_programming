@@ -10,7 +10,6 @@ class BaseGeometry():
 
     def area(self):
         """Empty Function area"""
-        
 
     def integer_validator(self, name, value):
         """Validate an integer"""
@@ -18,6 +17,7 @@ class BaseGeometry():
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
 
 class Rectangle(BaseGeometry):
     """
