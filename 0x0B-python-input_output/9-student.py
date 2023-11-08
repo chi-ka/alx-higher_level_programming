@@ -30,7 +30,7 @@ class Student:
         Retrieves a dictionary representation of the Student instance.
 
         Returns:
-            dict: A dictionary containing the student's first_name, last_name, and age.
+            dict: A dictionary containing the student's first_name, l.
         """
         student_json = {
             "first_name": self.first_name,

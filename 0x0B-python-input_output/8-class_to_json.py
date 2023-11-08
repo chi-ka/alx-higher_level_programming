@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Parses a JSON string and returns the corresponding Python data structure."""
 
+
 def class_to_json(obj):
-    """Parses a JSON string and returns the corresponding Python data structure."""
+    """Parses a JSON string and Python data structure."""
     if not hasattr(obj, "__dict__"):
         raise TypeError("Object is not serializable")
 
