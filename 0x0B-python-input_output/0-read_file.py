@@ -10,8 +10,8 @@ def read_file(filename=""):
     filename (str): The name of the file to be read.
 
     Note:
-    - This function assumes that the file exists and has the necessary permissions.
-    - It reads the file line by line and prints each line to the standard output.
+    - This function assumes that the file exists and has the necessary permiss
+    - It reads the file line by line and prints each line to the standard outp.
     """
     with open(filename, 'r', encoding='utf-8') as file:
         for line in file:
