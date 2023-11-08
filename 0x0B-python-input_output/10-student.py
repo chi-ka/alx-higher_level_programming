@@ -44,4 +44,3 @@ class Student:
                 if hasattr(self, attr):
                     result_dict[attr] = getattr(self, attr)
         return result_dict
-

@@ -30,23 +30,27 @@ class Student:
         Retrieves a dictionary representation of the Student instance.
 
         Args:
-            attrs (list of str, optional): A list of attribute names to retrieve.
+            attrs (list of str, optional): A list of attribute names to re
                 If None, all attributes are retrieved.
 
         Returns:
-            dict: A dictionary containing the specified attributes of the student.
+            dict: A dictionary containing the specified attributes of the stu.
         """
         if attrs is None:
             return self.__dict__
         else:
-            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
+            result_dict = {}
+            for attr in attrs:
+                if hasattr(self, attr):
+                    result_dict[attr] = getattr(self, attr)
+            return result_dict
 
     def reload_from_json(self, json):
         """
-        Replaces all attributes of the Student instance using the provided dictionary.
+        Replaces all attributes of the Student instance using the.
 
         Args:
-            json (dict): A dictionary containing attribute names and their values.
+            json (dict): A dictionary containing attribute nam.
         """
         for key, value in json.items():
             setattr(self, key, value)
