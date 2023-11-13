@@ -2,21 +2,10 @@
 """Class Base will be the “base” of all other classes in this project"""
 
 
-class Base:
-    """Base class for other classes."""
-
-    __nb_objects = 0
-
-    def __init__(self, id=None):
-        """Initialize an instance with a given ID."""
-        if id is not None:
-            self.id = id
-        else:
-            type(self).__nb_objects += 1
-            self.id = type(self).__nb_objects
+import json
+from models.base import Base
 
 
-# models/rectangle.py
 class Rectangle(Base):
     """Rectangle class, inherits from Base."""
 
@@ -99,6 +88,22 @@ class Rectangle(Base):
             print()
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
+
+    def to_dictionary(self):
+        """Returns a dictionary object"""
+        return {'x': self.__x, 'width': self.__width, 'id': self.id, 
+        'height': self.__height, 'y': self.__y}
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Write the JSON string representation of list_objs to a file."""
+        if list_objs is None:
+            list_objs = []
+        filename = f"{cls.__name__}.json"
+        json_string = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
+    
+        with open(filename, 'w') as file:
+            file.write(json_string)
 
     def update(self, *argv, **kwargs):
         """Update the Rectangle attributes with the provided arguments."""
