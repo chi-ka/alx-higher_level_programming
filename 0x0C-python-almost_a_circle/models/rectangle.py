@@ -79,8 +79,11 @@ class Rectangle(Base):
 
     def __str__(self):
         """What wee see when we print"""
-        return("""[Rectangle] ({}) {}/{}- {}/{}""".
-        format(self.id, self.__x, self.__y, self.__width, self.__height))
+        return(
+                """[Rectangle] ({}) {}/{}- {}/{}""".format(
+                    self.id, self.__x, self.__y, self.__width, self.__height
+                    )
+                 )
 
     def display(self):
         """prints in stdout the Rectangle with the character #"""
@@ -91,8 +94,13 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns a dictionary object"""
-        return {'x': self.__x, 'width': self.__width, 'id': self.id, 
-        'height': self.__height, 'y': self.__y}
+        return {
+                'x': self.__x,
+                'width': self.__width,
+                'id': self.id,
+                'height': self.__height,
+                'y': self.__y
+                }
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -100,8 +108,10 @@ class Rectangle(Base):
         if list_objs is None:
             list_objs = []
         filename = f"{cls.__name__}.json"
-        json_string = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
-    
+        json_string = cls.to_json_string(
+                [obj.to_dictionary() for obj in list_objs]
+                )
+
         with open(filename, 'w') as file:
             file.write(json_string)
 
