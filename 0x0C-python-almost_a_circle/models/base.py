@@ -30,8 +30,10 @@ class Base:
         if list_objs is None:
             list_objs = []
         filename = f"{cls.__name__}.json"
-        json_string = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
-    
+        json_string = cls.to_json_string(
+                [obj.to_dictionary() for obj in list_objs]
+                )
+
         with open(filename, 'w') as file:
             file.write(json_string)
 
@@ -50,7 +52,9 @@ class Base:
             dummy_instance = cls(1)
         else:
             # Handle other classes accordingly
-            raise NotImplementedError(f"Class {cls.__name__} not supported in create method.")
+            raise NotImplementedError(
+                    f"Class {cls.__name__} not supported in create method."
+                    )
 
         dummy_instance.update(**dictionary)
         return dummy_instance
