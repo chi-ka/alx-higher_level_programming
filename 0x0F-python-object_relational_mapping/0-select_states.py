@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
 Script to list all states from the database hbtn_0e_0_usa.
-
-This script takes 3 arguments: mysql username, mysql password, and database name.
-It uses the MySQLdb module to connect to a MySQL server running on localhost at port 3306.
+This script takes 3 arguments: mysql username, mysql password, and db name.
+It uses the MySQLdb module to connect to a MySQL server runniat port 3306.
 Results are sorted in ascending order by states.id.
 Results are displayed as they are in the example below.
 """
 
 import MySQLdb
 import sys
+
 
 def list_states(username, password, database):
     """
@@ -23,7 +23,14 @@ def list_states(username, password, database):
     Returns:
         None
     """
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database, charset="utf8")
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database,
+        charset="utf8"
+    )
 
     cursor = db.cursor()
 
@@ -37,6 +44,7 @@ def list_states(username, password, database):
     cursor.close()
     db.close()
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 4:
         print("Usage: python script.py <username> <password> <database>")
@@ -47,4 +55,3 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     list_states(username, password, database)
-
