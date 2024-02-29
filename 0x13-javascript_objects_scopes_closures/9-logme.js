@@ -1,17 +1,10 @@
 #!/usr/bin/node
+let count = 0; // Initialize a counter for the number of arguments already printed
 
-// Function to reverse a list
-exports.esrever = function (list) {
-    let reversedList = [];
-    for (let i = list.length - 1; i >= 0; i--) {
-        reversedList.push(list[i]);
-    }
-    return reversedList;
+exports.logMe = function(item) {
+    // Print the number of arguments already printed and the current argument value
+    console.log(`${count}: ${item}`);
+
+    // Increment the counter for the number of arguments printed
+    count++;
 };
-
-// Test the function
-const esrever = require('./8-esrever').esrever;
-
-console.log(esrever([1, 2, 3, 4, 5]));
-console.log(esrever(["School", 89, { id: 12 }, "String"]));
- 
