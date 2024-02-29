@@ -1,17 +1,12 @@
 #!/usr/bin/node
+exports.esrever = function(list) {
+    let newlist = [];
 
-// Function to reverse a list
-exports.esrever = function (list) {
-    let reversedList = [];
+    // Iterate over the list in reverse order
     for (let i = list.length - 1; i >= 0; i--) {
-        reversedList.push(list[i]);
+        // Add elements to the new list
+        newlist.push(list[i]);
     }
-    return reversedList;
+
+    return newlist;
 };
-
-// Test the function
-const esrever = require('./8-esrever').esrever;
-
-console.log(esrever([1, 2, 3, 4, 5]));
-console.log(esrever(["School", 89, { id: 12 }, "String"]));
-
